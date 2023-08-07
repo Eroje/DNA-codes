@@ -1,3 +1,5 @@
+
+// My Codes
 // Returns a random DNA base
 const returnRandBase = () => {
     const dnaBases = ['A', 'T', 'C', 'G']
@@ -38,8 +40,8 @@ const returnRandBase = () => {
             identicalBases++;
           }
         }
-      const percentageIdentical = (identicalBases / totalBases) * 100;
-  console.log(`Specimen ${this.specimenNum} and Specimen ${pAequorObj.specimenNum} have ${percentageIdentical.toFixed(2)}% DNA in common.`);
+    const percentageIdentical = (identicalBases / totalBases) * 100;
+    console.log(`Specimen ${this.specimenNum} and Specimen ${pAequorObj.specimenNum} have ${percentageIdentical.toFixed(2)}% DNA in common.`);
       },
       willLikelySurvive () {
         const cgBasesCount = this.dna.filter(base => base === 'C' || base === 'G').length;
@@ -84,7 +86,7 @@ the DNA of P. aequor for your research team to study.
   
   console.log('\nLikely to survive (organism1):', organism1.willLikelySurvive());
   console.log('\nLikely to survive (organism2):', organism2.willLikelySurvive());
-  
+
   */
   
   
