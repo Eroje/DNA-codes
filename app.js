@@ -1,6 +1,6 @@
 
 // Returns a random DNA base
-// Alternative Solutin to main.js Codecademy
+// Alternative Solutin to main.js (From Codecademy Forum)
 
 const returnRandBase = () => {
     const dnaBases = ['A', 'T', 'C', 'G']
