@@ -47,11 +47,26 @@ const returnRandBase = () => {
         const cgBasesCount = this.dna.filter(base => base === 'C' || base === 'G').length;
         const percentageCG = (cgBasesCount / this.dna.length) * 100;
         return percentageCG >= 60;
+      },
+      
+// Method to get the complementary DNA strand
+
+  complementStrand() {
+    const complementMap = {
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
+        'G': 'C'
+      };
+
+    const complementaryStrand = this.dna.map(base => complementMap[base]);
+      return complementaryStrand;
       }
     }
   };
   
   // Create 30 instances of pAequor that can survive
+
   const pAequorInstances = [];
   let specimenNum = 1;
   
@@ -64,13 +79,33 @@ const returnRandBase = () => {
       specimenNum++;
     }
   }
-  
-  // Print the DNA of each organism that can survive
-  pAequorInstances.forEach((organism, index) => {
+
+// Print the DNA of each organism that can survive
+
+    pAequorInstances.forEach((organism, index) => {
     console.log(`Organism ${index + 1} DNA:`, organism.dna);
   });
+
+// Find the two most related instances of pAequor using .compareDNA()
+
+let maxCommonPercentage = 0;
+let mostRelatedPair = [];
+
+for (let i = 0; i < pAequorInstances.length; i++) {
+  for (let j = i + 1; j < pAequorInstances.length; j++) {
+    const commonPercentage = pAequorInstances[i].compareDNA(pAequorInstances[j]);
+    if (commonPercentage > maxCommonPercentage) {
+      maxCommonPercentage = commonPercentage;
+      mostRelatedPair = [pAequorInstances[i].specimenNum, pAequorInstances[j].specimenNum];
+    }
+  }
+}
+
+console.log('Most related pair:', mostRelatedPair);
   
-/* Project Goals
+/* 
+Project Goals:
+
 Context: You’re part of a research team that has found a new mysterious organism at the bottom of the ocean near hydrothermal vents.
 Your team names the organism, Pila aequor (P. aequor), and finds that it is only comprised of 15 DNA bases. The small DNA samples and 
 frequency at which it mutates due to the hydrothermal vents make P. aequor an interesting specimen to study. However, P. aequor cannot 

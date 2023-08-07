@@ -41,8 +41,9 @@ const returnRandBase = () => {
             }
           }
         }
-        console.log(`Specimen 1 and Specimen 2 have ${Math.floor(100 / 15 * score)}% DNA in common`)
+    console.log(`Specimen 1 and Specimen 2 have ${Math.floor(100 / 15 * score)}% DNA in common`)
       },
+
       willLikelySurvive () {
         let dnaScore = 0;
         const survivedStrand = [];
@@ -55,7 +56,7 @@ const returnRandBase = () => {
           survivedStrand.push(this.dna);
         }
         return console.log(survivedStrand);
-      }
+        }
       }
     };
   
